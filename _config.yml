@@ -7,11 +7,19 @@ url: "https://jay-e.dev"
 # Jekyll settings
 permalink: /:title/
 
-# New: Custom collection for free filenames
+# Custom blog collection
 collections:
   blog:
     output: true
     permalink: /:title/
+
+# ← NEW: Automatically apply dark post layout to every blog post
+defaults:
+  - scope:
+      path: ""
+      type: "blog"
+    values:
+      layout: "post"
 
 # Future-proof
 future: true
