@@ -1,0 +1,22 @@
+---
+layout: default
+title: Home
+---
+
+<h1 class="text-4xl font-bold mb-8">Latest Posts</h1>
+
+<ul class="space-y-8">
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}" class="block hover:bg-zinc-900 p-6 rounded-2xl transition">
+        <time class="text-sm text-zinc-400">{{ post.date | date: "%B %d, %Y" }}</time>
+        <h2 class="text-2xl font-semibold mt-2">{{ post.title }}</h2>
+        <p class="text-zinc-400 mt-2 line-clamp-2">{{ post.excerpt | default: post.content | strip_html | truncate: 160 }}</p>
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+
+{% if site.posts.size == 0 %}
+  <p class="text-zinc-400">No posts yet — create your first one!</p>
+{% endif %}

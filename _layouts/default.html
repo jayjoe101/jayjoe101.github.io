@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body class="bg-zinc-950 text-zinc-200 font-sans">
+    <div class="max-w-3xl mx-auto px-6 py-12">
+        {{ content }}
+    </div>
+</body>
+</html>
