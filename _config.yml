@@ -1,8 +1,8 @@
 title: Security Engineer Blog
 description: A simple blog built from scratch
 author: Jay E
-baseurl: "jay-e.dev"  # important for username.github.io
-url: "https://jayjoe101.github.io"
+baseurl: "" 
+url: "https://jay-e.dev"
 
 # Jekyll settings
 permalink: /:title/
