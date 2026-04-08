@@ -1,5 +1,7 @@
 ---
 title: My Second Blog Post
+date: 2026-04-08 13:00:00 -0400
+layout: post     # ← ADD THIS LINE
 ---
 
 Hello world! 👋
