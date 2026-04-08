@@ -1,11 +1,17 @@
-title: Security Engineer Blog
+title: My Blog
 description: A simple blog built from scratch
-author: Jay E
-baseurl: "" 
+author: Your Name
+baseurl: ""
 url: "https://jay-e.dev"
 
 # Jekyll settings
 permalink: /:title/
+
+# New: Custom collection for free filenames
+collections:
+  blog:
+    output: true
+    permalink: /:title/
 
 # Future-proof
 future: true

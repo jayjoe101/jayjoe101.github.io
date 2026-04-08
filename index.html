@@ -6,7 +6,7 @@ title: Home
 <h1 class="text-4xl font-bold mb-8">Latest Posts</h1>
 
 <ul class="space-y-8">
-  {% for post in site.posts %}
+  {% for post in site.blog %}
     <li>
       <a href="{{ post.url }}" class="block hover:bg-zinc-900 p-6 rounded-2xl transition">
         <time class="text-sm text-zinc-400">{{ post.date | date: "%B %d, %Y" }}</time>
@@ -17,6 +17,6 @@ title: Home
   {% endfor %}
 </ul>
 
-{% if site.posts.size == 0 %}
+{% if site.blog.size == 0 %}
   <p class="text-zinc-400">No posts yet — create your first one!</p>
 {% endif %}
