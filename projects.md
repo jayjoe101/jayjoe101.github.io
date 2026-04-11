@@ -4,14 +4,11 @@ layout: default
 permalink: /projects/
 ---
 
-<div class="max-w-6xl mx-auto px-6 py-10">
-  <!-- Header now matches Home + Info pages exactly -->
-  <header class="mb-12">
-    <h1 class="text-4xl font-bold tracking-tight">Projects</h1>
-    <p class="text-zinc-400 mt-3 text-xl">Security engineering tools, research, and implementations</p>
-  </header>
+<div class="max-w-6xl mx-auto px-6">
+  <h1 class="text-4xl font-bold tracking-tight">Projects</h1>
+  <p class="text-zinc-400 mt-3 text-xl">Security engineering tools, research, and implementations</p>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {% for project in site.projects %}
     <a href="{{ project.github }}" target="_blank" class="group block">
       <div class="bg-zinc-900 border border-zinc-700 rounded-3xl overflow-hidden shadow-2xl transition-all duration-300 hover:-translate-y-3 hover:border-zinc-400 hover:shadow-zinc-400/30">
