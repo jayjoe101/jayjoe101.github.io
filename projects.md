@@ -14,19 +14,10 @@ permalink: /projects/
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {% for project in site.projects %}
       <a href="{{ project.github }}" target="_blank" class="group block">
-        <div class="bg-zinc-900 border border-zinc-700 rounded-3xl overflow-hidden shadow-2xl transition-all duration-300 hover:-translate-y-3 hover:border-emerald-500/60 hover:shadow-emerald-500/20">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-3xl overflow-hidden shadow-2xl transition-all duration-300 hover:-translate-y-3 hover:border-zinc-400 hover:shadow-zinc-400/30">
           
-          <!-- Window title bar -->
-          <div class="h-11 bg-zinc-800 flex items-center px-4 border-b border-zinc-700">
-            <div class="flex gap-1.5">
-              <div class="w-3 h-3 rounded-full bg-red-500"></div>
-              <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
-            </div>
-            <div class="flex-1 text-center">
-              <span class="text-zinc-400 text-xs font-mono tracking-widest">project</span>
-            </div>
-          </div>
+          <!-- Minimal window title bar (no lights, no text) -->
+          <div class="h-11 bg-zinc-800 border-b border-zinc-700"></div>
 
           <!-- Image + title overlay -->
           <div class="relative h-72">
