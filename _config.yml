@@ -20,6 +20,6 @@ defaults:
       path: ""
       type: "blog"
     values:
-      layout: "default"
+      layout: "posts"
 
 future: true
