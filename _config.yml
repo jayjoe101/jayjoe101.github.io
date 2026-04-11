@@ -4,16 +4,17 @@ author: Jay E
 baseurl: ""
 url: "https://jay-e.dev"
 
-# Jekyll settings
+# these are all Jekyll settings
+# and allow me to have the custom setup im using
 permalink: /:title/
 
-# Custom blog collection
 collections:
   blog:
     output: true
     permalink: /:title/
+  projects:
+    output: false
 
-# ← NEW: Automatically apply dark post layout to every blog post
 defaults:
   - scope:
       path: ""
@@ -21,5 +22,4 @@ defaults:
     values:
       layout: "post"
 
-# Future-proof
 future: true
