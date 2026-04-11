@@ -3,7 +3,7 @@ layout: default
 ---
 
 <article class="max-w-3xl mx-auto">
-    <!-- Post Header (this now lives only here) -->
+    <!-- Post Header -->
     <header class="mb-12">
         <h1 class="text-4xl font-bold tracking-tight leading-tight">{{ page.title }}</h1>
         
@@ -14,7 +14,7 @@ layout: default
         </div>
     </header>
 
-    <!-- Post Content (your Markdown) -->
+    <!-- Post Content -->
     <div class="prose prose-invert prose-zinc max-w-none text-[1.1rem] leading-relaxed tracking-[-0.01em]">
         {{ content }}
     </div>
@@ -31,20 +31,17 @@ layout: default
 <!-- === BEAUTIFUL BEVELED CODE WINDOWS + COPY BUTTON === -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Catch all possible Jekyll code block wrappers
-    document.querySelectorAll('pre, .highlight pre, .highlighter-rouge pre').forEach((pre) => {
+    // More robust selectors for Jekyll's code block wrappers
+    document.querySelectorAll('pre, .highlight pre, .highlighter-rouge pre, div[class^="language-"] pre').forEach((pre) => {
       const code = pre.querySelector('code') || pre;
       if (!code) return;
 
-      // Wrap in beveled window
       const container = document.createElement('div');
       container.className = 'my-8 bg-zinc-900 border border-zinc-700 rounded-3xl overflow-hidden shadow-2xl';
 
-      // Window header bar
       const header = document.createElement('div');
       header.className = 'h-11 bg-zinc-800 border-b border-zinc-700 flex items-center px-4';
 
-      // Copy button
       const copyBtn = document.createElement('button');
       copyBtn.className = 'ml-auto flex items-center gap-1.5 px-3 text-xs font-medium text-zinc-400 hover:text-white transition-colors';
       copyBtn.innerHTML = `
@@ -60,7 +57,6 @@ layout: default
 
       pre.classList.add('bg-zinc-950', 'p-6', 'overflow-auto', 'text-sm', 'font-mono', 'leading-relaxed', '!mt-0', 'rounded-b-3xl');
 
-      // Copy to clipboard
       copyBtn.addEventListener('click', () => {
         navigator.clipboard.writeText(code.textContent.trim()).then(() => {
           const original = copyBtn.innerHTML;
