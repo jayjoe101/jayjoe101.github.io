@@ -28,51 +28,80 @@ layout: default
     </div>
 </article>
 
-<!-- === FIXED BEVELED CODE WINDOWS (handles Jekyll's .highlighter-rouge wrapper) === -->
+<!-- === SLEEK BEVELED CODE WINDOWS + COPY BUTTON + LANGUAGE === -->
+<style>
+  /* Minimal dark syntax highlighting for Rouge (looks great in your theme) */
+  .highlighter-rouge pre code {
+    color: #e4e4e7;
+  }
+  .highlighter-rouge .k, .highlighter-rouge .kd { color: #67e8f9; } /* keywords */
+  .highlighter-rouge .s, .highlighter-rouge .sa { color: #86efac; } /* strings */
+  .highlighter-rouge .c, .highlighter-rouge .cm { color: #64748b; } /* comments */
+  .highlighter-rouge .n { color: #e0f2fe; }
+  .highlighter-rouge .m { color: #c084fc; } /* numbers */
+  .highlighter-rouge .o { color: #f472b6; } /* operators */
+</style>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.highlighter-rouge').forEach((block) => {
       const pre = block.querySelector('pre');
       if (!pre) return;
-
       const code = pre.querySelector('code') || pre;
 
-      // Create the window
+      // Get language name (e.g. "python", "bash")
+      let lang = '';
+      block.classList.forEach(cls => {
+        if (cls.startsWith('language-')) {
+          lang = cls.replace('language-', '');
+          lang = lang.charAt(0).toUpperCase() + lang.slice(1);
+        }
+      });
+
+      // Create window container
       const container = document.createElement('div');
       container.className = 'my-8 bg-zinc-900 border border-zinc-700 rounded-3xl overflow-hidden shadow-2xl';
 
-      // Window header bar
+      // Window header
       const header = document.createElement('div');
-      header.className = 'h-11 bg-zinc-800 border-b border-zinc-700 flex items-center px-4';
+      header.className = 'h-11 bg-zinc-800 border-b border-zinc-700 flex items-center px-4 text-xs font-medium text-zinc-400';
 
-      // Copy button
+      // Language name (left)
+      const langSpan = document.createElement('span');
+      langSpan.textContent = lang || 'CODE';
+      header.appendChild(langSpan);
+
+      // Copy button (icon only, right)
       const copyBtn = document.createElement('button');
-      copyBtn.className = 'ml-auto flex items-center gap-1.5 px-3 text-xs font-medium text-zinc-400 hover:text-white transition-colors';
+      copyBtn.className = 'ml-auto flex items-center justify-center w-8 h-8 hover:text-white transition-colors';
       copyBtn.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16v-4m4 4v4m-8-8h8a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v4a2 2 0 002 2z" />
         </svg>
-        <span>COPY</span>
       `;
 
       header.appendChild(copyBtn);
-
-      // Replace the old block with our new window container in the DOM
-      block.parentNode.replaceChild(container, block);
-
-      // Put the header and the original code block inside the window
       container.appendChild(header);
+
+      // Move the original code block inside the window
+      block.parentNode.replaceChild(container, block);
       container.appendChild(block);
 
-      // Style the inner pre to look clean inside the window
+      // Style the code area
       pre.classList.add('bg-zinc-950', 'p-6', 'overflow-auto', 'text-sm', 'font-mono', 'leading-relaxed', '!mt-0', 'rounded-b-3xl');
 
-      // Copy functionality
+      // Copy functionality with sleek icon change
       copyBtn.addEventListener('click', () => {
         navigator.clipboard.writeText(code.textContent.trim()).then(() => {
-          const original = copyBtn.innerHTML;
-          copyBtn.innerHTML = `✅ COPIED!`;
-          setTimeout(() => { copyBtn.innerHTML = original; }, 2000);
+          const originalIcon = copyBtn.innerHTML;
+          copyBtn.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 10l7-7m0 0l7 7" />
+            </svg>
+          `;
+          setTimeout(() => {
+            copyBtn.innerHTML = originalIcon;
+          }, 2000);
         });
       });
     });
