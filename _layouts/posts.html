@@ -3,7 +3,7 @@ layout: default
 ---
 
 <article class="max-w-3xl mx-auto">
-    <!-- Post Header -->
+    <!-- Post Header (this now lives only here) -->
     <header class="mb-12">
         <h1 class="text-4xl font-bold tracking-tight leading-tight">{{ page.title }}</h1>
         
@@ -28,42 +28,43 @@ layout: default
     </div>
 </article>
 
-<!-- Custom beveled window code blocks + copy button -->
+<!-- === BEAUTIFUL BEVELED CODE WINDOWS + COPY BUTTON === -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('pre').forEach((pre) => {
+    // Catch all possible Jekyll code block wrappers
+    document.querySelectorAll('pre, .highlight pre, .highlighter-rouge pre').forEach((pre) => {
       const code = pre.querySelector('code') || pre;
-      
-      // Create window container
+      if (!code) return;
+
+      // Wrap in beveled window
       const container = document.createElement('div');
       container.className = 'my-8 bg-zinc-900 border border-zinc-700 rounded-3xl overflow-hidden shadow-2xl';
 
-      // Minimal header bar (matches your project window style)
+      // Window header bar
       const header = document.createElement('div');
       header.className = 'h-11 bg-zinc-800 border-b border-zinc-700 flex items-center px-4';
 
-      // Copy button (top right)
+      // Copy button
       const copyBtn = document.createElement('button');
-      copyBtn.className = 'ml-auto px-4 text-xs font-medium text-zinc-400 hover:text-white flex items-center gap-1.5 transition-colors';
+      copyBtn.className = 'ml-auto flex items-center gap-1.5 px-3 text-xs font-medium text-zinc-400 hover:text-white transition-colors';
       copyBtn.innerHTML = `
         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16v-4m4 4v4m-8-8h8a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v4a2 2 0 002 2z" />
         </svg>
-        <span>Copy</span>
+        <span>COPY</span>
       `;
 
       header.appendChild(copyBtn);
       container.appendChild(header);
       container.appendChild(pre);
 
-      // Style the code area
-      pre.classList.add('bg-zinc-950', 'p-6', 'overflow-auto', 'text-sm', 'font-mono', 'leading-relaxed', '!mt-0');
+      pre.classList.add('bg-zinc-950', 'p-6', 'overflow-auto', 'text-sm', 'font-mono', 'leading-relaxed', '!mt-0', 'rounded-b-3xl');
 
-      // Copy functionality
+      // Copy to clipboard
       copyBtn.addEventListener('click', () => {
         navigator.clipboard.writeText(code.textContent.trim()).then(() => {
           const original = copyBtn.innerHTML;
-          copyBtn.innerHTML = `✅ Copied!`;
+          copyBtn.innerHTML = `✅ COPIED!`;
           setTimeout(() => { copyBtn.innerHTML = original; }, 2000);
         });
       });
