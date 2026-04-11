@@ -13,12 +13,10 @@ permalink: /projects/
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {% for project in site.projects %}
-      {% assign repo_slug = project.github | replace: 'https://github.com/', '' %}
-      
       <a href="{{ project.github }}" target="_blank" class="group block">
         <div class="bg-zinc-900 border border-zinc-700 rounded-3xl overflow-hidden shadow-2xl transition-all duration-300 hover:-translate-y-3 hover:border-zinc-400 hover:shadow-zinc-400/30">
           
-          <!-- Minimal window title bar (clean, no lights, no text) -->
+          <!-- Minimal clean window title bar -->
           <div class="h-11 bg-zinc-800 border-b border-zinc-700"></div>
 
           <!-- Image container -->
@@ -27,25 +25,15 @@ permalink: /projects/
                  alt="{{ project.title }}"
                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
 
-            <!-- Stronger dark gradient for perfect text readability -->
-            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/95 via-zinc-950/60 to-transparent"></div>
+            <!-- Strong dark gradient for perfect text readability -->
+            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/95 via-zinc-950/70 to-transparent"></div>
 
-            <!-- GitHub stars badge (top right) -->
-            <div class="absolute top-6 right-6">
-              <img src="https://img.shields.io/github/stars/{{ repo_slug }}?style=flat-square&amp;color=64748b&amp;logo=github&amp;logoColor=white" 
-                   alt="GitHub stars" 
-                   class="h-5 drop-shadow-md">
-            </div>
-
-            <!-- Title + Description area -->
-            <div class="absolute bottom-8 left-8 right-8 transition-all duration-300">
-              <!-- Default: Title -->
-              <h3 class="text-3xl font-semibold text-white tracking-tight transition-all duration-300 group-hover:opacity-0">
-                {{ project.title }}
-              </h3>
+            <!-- Title + Description (title always visible) -->
+            <div class="absolute bottom-8 left-8 right-8 flex flex-col transition-all duration-300 group-hover:-translate-y-4">
+              <h3 class="text-3xl font-semibold text-white tracking-tight">{{ project.title }}</h3>
               
-              <!-- Hover: Short description replaces title -->
-              <p class="text-zinc-300 text-base leading-tight mt-1 opacity-0 transition-all duration-300 group-hover:opacity-100 line-clamp-3">
+              <!-- Description appears underneath on hover -->
+              <p class="text-zinc-300 text-base leading-tight mt-3 opacity-0 max-h-0 overflow-hidden transition-all duration-300 group-hover:opacity-100 group-hover:max-h-28">
                 {{ project.description }}
               </p>
             </div>
