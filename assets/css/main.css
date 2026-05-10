@@ -96,8 +96,8 @@ article code {
 }
 
 .prose blockquote {
-  margin: 1.25rem 0;
-  padding: 0.75rem 1.25rem;
+  margin: 1rem 0;
+  padding: 0.75rem 1.25rem 0.5rem 1.25rem; /* reduced bottom padding to minimize extra space */
   border-left: 5px solid #4b5563;
   background-color: #1f2937;
   font-style: italic;
@@ -127,14 +127,12 @@ article code {
   color: #d1d5db;
 }
 
-/* Code blocks - much more readable */
+/* Code blocks - now fully handled by custom JS window in posts.html for uniform background.
+   Keeping only inline code styles here. */
 .prose pre {
-  background-color: #111827;
-  padding: 1.5rem;
-  border-radius: 0.75rem;
+  /* background/padding/border removed - custom code windows provide uniform bg and styling */
   overflow-x: auto;
   margin: 2rem 0;
-  border: 1px solid #374151;
 }
 
 .prose code {
