@@ -28,7 +28,7 @@ layout: default
     </div>
 </article>
 
-<!-- === SLEEK BEVELED CODE WINDOWS + COPY BUTTON + LANGUAGE === -->
+<!-- === SLEEK BEVELED CODE WINDOWS + COPY BUTTON + LANGUAGE (FIXED - NO NESTING) === -->
 <style>
   /* Dark syntax highlighting - backgrounds now controlled by custom code window container */
   .highlighter-rouge pre code, .highlight pre code {
@@ -50,12 +50,14 @@ layout: default
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Target both possible class names for robustness
-    const codeBlocks = document.querySelectorAll('.highlighter-rouge, .highlight');
+    // Only target outer code blocks (no .highlight to avoid processing inner <pre>s)
+    const codeBlocks = document.querySelectorAll('.highlighter-rouge');
     
     codeBlocks.forEach((block) => {
-      if (block.dataset.processed) return;
+      // Extra safety: skip if already inside a custom window OR already processed
+      if (block.dataset.processed || block.closest('.my-8')) return;
       block.dataset.processed = 'true';
+      
       const pre = block.querySelector('pre');
       if (!pre) return;
       const code = pre.querySelector('code') || pre;
@@ -100,10 +102,10 @@ layout: default
       block.parentNode.replaceChild(container, block);
       container.appendChild(block);
 
-      // Style the code area - seamless single box, less bottom padding, match container bg
+      // Style the code area - seamless single box, less bottom padding
       pre.classList.add('bg-zinc-900', 'px-6', 'pt-6', 'pb-4', 'overflow-auto', 'text-sm', 'font-mono', 'leading-relaxed', '!mt-0');
 
-      // Make the original block (highlighter-rouge) completely seamless - no inner box
+      // Make the original block completely seamless (no inner box)
       block.style.background = 'transparent';
       block.style.border = 'none';
       block.style.padding = '0';

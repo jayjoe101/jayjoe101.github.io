@@ -96,8 +96,8 @@ article code {
 }
 
 .prose blockquote {
-  margin: 1.75rem 0;
-  padding: 1rem 1.5rem;
+  margin: 1.25rem 0;
+  padding: 0.75rem 1.25rem;
   border-left: 5px solid #4b5563;
   background-color: #1f2937;
   font-style: italic;
