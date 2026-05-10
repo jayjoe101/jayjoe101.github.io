@@ -58,11 +58,14 @@ layout: default
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Target both possible class names for robustness
-    const codeBlocks = document.querySelectorAll('.highlighter-rouge, .highlight');
+    if (window.__codeWindowsInitialized) return;
+    window.__codeWindowsInitialized = true;
+
+    // Only target the outer containers Rouge actually produces
+    const codeBlocks = document.querySelectorAll('.highlighter-rouge');
     
     codeBlocks.forEach((block) => {
-      if (block.dataset.processed) return;
+      if (block.dataset.processed || block.closest('.my-8')) return;
       block.dataset.processed = 'true';
       const pre = block.querySelector('pre');
       if (!pre) return;
