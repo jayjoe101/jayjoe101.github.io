@@ -58,7 +58,7 @@ Well most frontier models expose an API, where if you pass it a payload containi
 
 A simple Python implementation of this may look like:
 
-``` Python
+```python
 import requests
 
 def model_a(prompt):
@@ -79,7 +79,7 @@ Where we have a simple function `model_a` that takes a `str` input and returns t
 
 Now instead of feeding it one strict prompt with a domain "hardcoded", we can use an `f-string` and a for loop to iteratively prompt the model over a sequence of domains.
 
-``` Python
+```python
 domains = [
     "g00gle.com",
     "google.com",
@@ -99,7 +99,7 @@ for domain in domains:
 
 There is a problem with this though. How do we know what the model's response is? Obviously we don't want to manually read the response for each item. Instead, we will do some "prompt engineering" to ensure that the model always responds with a boolean value of `True = suspicious` or `False = legit`.
 
-``` Python
+```python
 model_results = []
 
 for domain in domains:
@@ -128,7 +128,7 @@ for domain in domains:
 
 From this we will have two lists of equal length, one containing the domains we wanted to check and another containing the model's responses indicating whether the corresponding domain is suspicious or not. Since the two lists are aligned by their indices, we can combine them into a dictionary or table using the `pandas.DataFrame` object.
 
-``` Python
+```python
 import pandas as pd
 
 models_response = pd.DataFrame({'domain': domains, 'is_suspicious': model_results})
