@@ -4,8 +4,6 @@ author: Jay E
 baseurl: ""
 url: "https://jay-e.dev"
 
-# these are all Jekyll settings
-# and allow me to have the custom setup im using
 permalink: /:title/
 
 collections:
@@ -32,6 +30,6 @@ kramdown:
   hard_wrap: false
   syntax_highlighter: rouge
   syntax_highlighter_opts:
-    css_class: 'highlight'
+    css_class: 'highlighter-rouge'
     span:
       line_numbers: false

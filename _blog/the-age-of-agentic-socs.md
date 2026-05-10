@@ -14,7 +14,7 @@ In this post, I'll walk you through the exact problem that flipped my perspectiv
 
 And it starts with a scenario that's trivial for any human analyst to solve but extremely difficult to handle programmatically.
 
-## The Typosquatting Problem (Easy for Humans, Hard for Code)
+## Problems easy for humans but hard for code
 
 Take this domain as an example:
 `g0ogle[.]com`

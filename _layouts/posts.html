@@ -30,21 +30,38 @@ layout: default
 
 <!-- === SLEEK BEVELED CODE WINDOWS + COPY BUTTON + LANGUAGE === -->
 <style>
-  /* Minimal dark syntax highlighting for Rouge (looks great in your theme) */
-  .highlighter-rouge pre code {
-    color: #e4e4e7;
+  /* Dark syntax highlighting + force dark background to eliminate any light gray defaults */
+  .highlighter-rouge, .highlight {
+    background-color: #18181b !important; /* zinc-950 - dark, no weird gray */
   }
-  .highlighter-rouge .k, .highlighter-rouge .kd { color: #67e8f9; } /* keywords */
-  .highlighter-rouge .s, .highlighter-rouge .sa { color: #86efac; } /* strings */
-  .highlighter-rouge .c, .highlighter-rouge .cm { color: #64748b; } /* comments */
-  .highlighter-rouge .n { color: #e0f2fe; }
-  .highlighter-rouge .m { color: #c084fc; } /* numbers */
-  .highlighter-rouge .o { color: #f472b6; } /* operators */
+  
+  .highlighter-rouge pre, .highlight pre {
+    background-color: #18181b !important;
+  }
+  
+  .highlighter-rouge pre code, .highlight pre code {
+    color: #e4e4e7;
+    background: transparent;
+  }
+  
+  /* Minimal dark syntax highlighting for Rouge */
+  .highlighter-rouge .k, .highlighter-rouge .kd,
+  .highlight .k, .highlight .kd { color: #67e8f9; } /* keywords */
+  .highlighter-rouge .s, .highlighter-rouge .sa,
+  .highlight .s, .highlight .sa { color: #86efac; } /* strings */
+  .highlighter-rouge .c, .highlighter-rouge .cm,
+  .highlight .c, .highlight .cm { color: #64748b; } /* comments */
+  .highlighter-rouge .n, .highlight .n { color: #e0f2fe; }
+  .highlighter-rouge .m, .highlight .m { color: #c084fc; } /* numbers */
+  .highlighter-rouge .o, .highlight .o { color: #f472b6; } /* operators */
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.highlighter-rouge').forEach((block) => {
+    // Target both possible class names for robustness
+    const codeBlocks = document.querySelectorAll('.highlighter-rouge, .highlight');
+    
+    codeBlocks.forEach((block) => {
       const pre = block.querySelector('pre');
       if (!pre) return;
       const code = pre.querySelector('code') || pre;
@@ -89,7 +106,7 @@ layout: default
       block.parentNode.replaceChild(container, block);
       container.appendChild(block);
 
-      // Style the code area
+      // Style the code area - use consistent dark bg
       pre.classList.add('bg-zinc-950', 'p-6', 'overflow-auto', 'text-sm', 'font-mono', 'leading-relaxed', '!mt-0', 'rounded-b-3xl');
 
       // Copy functionality with sleek icon change
