@@ -47,8 +47,7 @@ And this is a genuinely hard problem.
 \
 \
 Existing tools called **domain permutation engines** attempt to solve it by generating common misspellings. However, building one from scratch requires deep expertise, significant tuning, constant maintenance and if done incorrectly it could cause lots of false positives and false negatives.
-\
-\
+
 ## Programmatically using AI to analyze for you
 \
 \
@@ -184,7 +183,8 @@ So why does the majority of the industry not use these methods?
 I think there are two general reasons:
 
 - **First**, not a lot of people in the industry are exposed to AI use cases outside of the typical chat bot models most people use now a days. This is mainly because of just how new AI is and especially how new Agentic AI is so not a lot of people have fully grasped what AI is capable of.
-
+\
+\
 - **Second**, using LLMs at scale like this is expensive, at least if you're using any of the frontier models. It may be worth setting up your own locally hosted open source model, where you would not be constrained by API rate limits and costs.
 \
 \
