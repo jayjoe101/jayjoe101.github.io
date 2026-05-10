@@ -5,9 +5,9 @@ image: /assets/images/thumbnails/agentic_workflow.png
 ---
 
 A few days ago I had major realization on the way AI will impact future SOC workflows.
-
+\
 I'm now nearly certain that the future SOC will be as close to fully automated as technically possible with human analysts primarily proofreading and approving AI generated findings and remediations.
-
+\
 And might dismiss me as another "AI bro", but this mindset is completely new to me. I genuinely didn't believe a fully automated SOC was feasible until earlier this week. Now I not only believe it's possible, I believe it will arrive much faster than most people expect.
 
 In this post, I'll walk you through the exact problem that flipped my perspective.
