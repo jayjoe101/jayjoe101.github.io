@@ -28,13 +28,13 @@ If this domain appeared in an alert dashboard, a SOC analyst would instantly rec
 
 Now imagine writing a program that can automatically detect domains like this at scale. You would need to:
 
-- Generate *every possible* misspelling and homoglyph variation of "google"
-- Do the same for *every* legitimate domain your organization cares about
+- Generate `every possible` misspelling and homoglyph variation of "google"
+- Do the same for `every`*` legitimate domain your organization cares about
 - Reliably distinguish malicious variants from legitimate ones
 
-And this is a genuinely hard problem.
+This is a genuinely hard problem!
 
-Existing tools called **domain permutation engines** attempt to solve it by generating common misspellings. However, building one from scratch requires deep expertise, significant tuning, constant maintenance and if done incorrectly it could cause lots of false positives and false negatives.
+Existing tools called **domain permutation engines** attempt to solve this by generating common misspellings. However, building one from scratch requires deep expertise, significant tuning, constant maintenance and if done incorrectly it could cause lots of false positives and false negatives.
 
 ## Programmatically using AI to analyze for you
 

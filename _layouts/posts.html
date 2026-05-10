@@ -30,15 +30,7 @@ layout: default
 
 <!-- === SLEEK BEVELED CODE WINDOWS + COPY BUTTON + LANGUAGE === -->
 <style>
-  /* Dark syntax highlighting + force dark background to eliminate any light gray defaults */
-  .highlighter-rouge, .highlight {
-    background-color: #18181b !important; /* zinc-950 - dark, no weird gray */
-  }
-  
-  .highlighter-rouge pre, .highlight pre {
-    background-color: #18181b !important;
-  }
-  
+  /* Dark syntax highlighting - backgrounds now controlled by custom code window container */
   .highlighter-rouge pre code, .highlight pre code {
     color: #e4e4e7;
     background: transparent;
@@ -58,14 +50,11 @@ layout: default
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    if (window.__codeWindowsInitialized) return;
-    window.__codeWindowsInitialized = true;
-
-    // Only target the outer containers Rouge actually produces
-    const codeBlocks = document.querySelectorAll('.highlighter-rouge');
+    // Target both possible class names for robustness
+    const codeBlocks = document.querySelectorAll('.highlighter-rouge, .highlight');
     
     codeBlocks.forEach((block) => {
-      if (block.dataset.processed || block.closest('.my-8')) return;
+      if (block.dataset.processed) return;
       block.dataset.processed = 'true';
       const pre = block.querySelector('pre');
       if (!pre) return;
@@ -111,8 +100,14 @@ layout: default
       block.parentNode.replaceChild(container, block);
       container.appendChild(block);
 
-      // Style the code area - use consistent dark bg
-      pre.classList.add('bg-zinc-950', 'p-6', 'overflow-auto', 'text-sm', 'font-mono', 'leading-relaxed', '!mt-0', 'rounded-b-3xl');
+      // Style the code area - seamless single box, less bottom padding, match container bg
+      pre.classList.add('bg-zinc-900', 'px-6', 'pt-6', 'pb-4', 'overflow-auto', 'text-sm', 'font-mono', 'leading-relaxed', '!mt-0');
+
+      // Make the original block (highlighter-rouge) completely seamless - no inner box
+      block.style.background = 'transparent';
+      block.style.border = 'none';
+      block.style.padding = '0';
+      block.style.margin = '0';
 
       // Copy functionality with sleek icon change
       copyBtn.addEventListener('click', () => {
