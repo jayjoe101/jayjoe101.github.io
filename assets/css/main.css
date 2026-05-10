@@ -50,73 +50,106 @@ article code {
   color: #e4e4e7;
 }
 
-/* Enhanced Markdown / prose styling for proper rendering of headers, paragraphs, blockquotes, etc.
-   This compensates for missing Tailwind Typography plugin and ensures newlines create proper paragraph spacing,
-   blockquotes are visually distinct, and headers are clear and well-spaced. */
-article h1 {
-  font-size: 2.25rem;
-  font-weight: 700;
-  line-height: 1.1;
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  color: #f4f4f5;
+/* === IMPROVED READABILITY FOR BLOG POSTS === */
+/* Targets the .prose container where the actual markdown content lives.
+   Much stronger spacing, larger text, better contrast and hierarchy for dark theme.
+   This should make the body text far more readable. */
+
+.prose {
+  font-size: 1.125rem;           /* slightly larger base size */
+  line-height: 1.9;              /* generous line height for readability */
+  color: #e5e7eb;                /* soft light gray for body text */
+  max-width: none;
 }
 
-article h2 {
+.prose h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-top: 0.5rem;
+  margin-bottom: 1.75rem;
+  color: #f3f4f6;
+}
+
+.prose h2 {
   font-size: 1.875rem;
   font-weight: 700;
-  line-height: 1.2;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  color: #f4f4f5;
+  line-height: 1.25;
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+  color: #f3f4f6;
+  border-bottom: 1px solid #374151;
+  padding-bottom: 0.5rem;
 }
 
-article h3 {
+.prose h3 {
   font-size: 1.5rem;
   font-weight: 600;
-  line-height: 1.3;
-  margin-top: 1.75rem;
-  margin-bottom: 0.75rem;
-  color: #f4f4f5;
+  line-height: 1.35;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #f3f4f6;
 }
 
-article p {
-  margin-bottom: 1.25rem;
-  line-height: 1.75;
-  color: #e4e4e7;
+.prose p {
+  margin-bottom: 1.75rem;
 }
 
-article blockquote {
-  margin: 1.5rem 0;
-  padding: 1rem 1.5rem;
-  border-left: 4px solid #3f3f46;
-  background-color: #27272a;
+.prose blockquote {
+  margin: 2rem 0;
+  padding: 1.5rem 2rem;
+  border-left: 6px solid #4b5563;
+  background-color: #1f2937;
   font-style: italic;
   color: #d1d5db;
-  border-radius: 0 0.375rem 0.375rem 0;
+  border-radius: 0.5rem;
+  font-size: 1.05rem;
 }
 
-article ul,
-article ol {
-  margin: 1.25rem 0;
-  padding-left: 1.75rem;
+.prose ul,
+.prose ol {
+  margin: 1.75rem 0;
+  padding-left: 2rem;
 }
 
-article li {
-  margin-bottom: 0.5rem;
-  line-height: 1.7;
+.prose li {
+  margin-bottom: 0.75rem;
+  line-height: 1.85;
 }
 
-article strong {
+.prose strong {
   font-weight: 700;
-  color: #f4f4f5;
+  color: #f3f4f6;
 }
 
-article em {
+.prose em {
   font-style: italic;
+  color: #d1d5db;
 }
 
-/* Improve spacing for the post content container */
-.prose {
-  max-width: none;
+/* Code blocks - much more readable */
+.prose pre {
+  background-color: #111827;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  margin: 2rem 0;
+  border: 1px solid #374151;
+}
+
+.prose code {
+  background-color: #374151;
+  padding: 0.25em 0.5em;
+  border-radius: 0.375rem;
+  font-size: 0.925em;
+  color: #f3f4f6;
+}
+
+/* Make the layout title h1 also nice (it sits outside .prose) */
+article h1 {
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #f3f4f6;
+  margin-bottom: 0.75rem;
 }
