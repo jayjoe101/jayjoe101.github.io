@@ -5,18 +5,19 @@ image: /assets/images/thumbnails/agentic_workflow.png
 ---
 
 A few days ago I had major realization on the way AI will impact future SOC workflows.
-\
+\\
 I'm now nearly certain that the future SOC will be as close to fully automated as technically possible with human analysts primarily proofreading and approving AI generated findings and remediations.
-\
+\\
 And might dismiss me as another "AI bro", but this mindset is completely new to me. I genuinely didn't believe a fully automated SOC was feasible until earlier this week. Now I not only believe it's possible, I believe it will arrive much faster than most people expect.
-
+\\
 In this post, I'll walk you through the exact problem that flipped my perspective.
-
+\\
 And it starts with a scenario that's trivial for any human analyst to solve but extremely difficult to handle programmatically.
-
+\\
 ## Problems easy for humans but hard for code
 
 Take this domain as an example:
+
 `g0ogle[.]com`
 
 To an analyst, and hopefully most people, they would look at this domain and immediately be able to tell that something is wrong with it.
@@ -37,18 +38,21 @@ Existing tools called **domain permutation engines** attempt to solve it by gene
 
 ## Programmatically using AI to analyze for you
 
-So, instead of writing hundreds of lines of brittle code, try this. 
+So, instead of writing hundreds of lines of brittle code, try this.
+
 Go onto your preffered generative AI website and simply give it this prompt:
-"i found this domain embedded inside an email:
-g0ogle[.]com 
-is this legitimate, or should i flag it as suspicious?"
+
+> i found this domain embedded inside an email:
+> g0ogle[.]com 
+> is this legitimate, or should i flag it as suspicious?
 
 Its extremely likely that your model said something on the lines of "this is not legitimate".
 
 And if the model you use allows you to view its "chain of reasoning" it might of replied with a very similar sounding thought process a human might have. 
 
 My model's "reasoning" was:
-"The domain g0ogle[.]com is a classic typosquatting/phishing domain. It replaces 'o' with '0' (zero) to mimic google.com."
+
+> "The domain g0ogle[.]com is a classic typosquatting/phishing domain. It replaces 'o' with '0' (zero) to mimic google.com."
 
 This is pretty impressive, and you can probably give your model any misspelling or variation of google.com and the vast majority of times it will return to you with the correct answer.
 
@@ -159,4 +163,3 @@ I think there are two general reasons:
 - **Second**, using LLMs at scale like this is expensive, at least if you're using any of the frontier models. It may be worth setting up your own locally hosted open source model, where you would not be constrained by API rate limits and costs.
 
 The only trade off with doing this is that the model you'll be using will be "less smart." One way to mitigate this is by running multiple open source models and forming a consensus based on their votes for a particular prompt. For example, suppose you have three different open source models, each asked the same question in the same way. If the majority agree on the same outcome, you take that outcome as the final opinion. In the example provided in this blog, we would ask each locally hosted model the same question: "Given this domain {domain}, is it malicious? Respond only with yes or no." Each model would then cast its vote, and we would take the majority's opinion as the final result.
-
