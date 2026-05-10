@@ -62,6 +62,8 @@ layout: default
     const codeBlocks = document.querySelectorAll('.highlighter-rouge, .highlight');
     
     codeBlocks.forEach((block) => {
+      if (block.dataset.processed) return;
+      block.dataset.processed = 'true';
       const pre = block.querySelector('pre');
       if (!pre) return;
       const code = pre.querySelector('code') || pre;
