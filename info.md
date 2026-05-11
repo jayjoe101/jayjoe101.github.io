@@ -18,5 +18,5 @@ layout: default
 
 <h2 class="text-2xl font-semibold mt-12 mb-4">Contact</h2>
 <p class="text-zinc-300">
-  You can reach me at <a href="mailto:your@email.com" class="text-blue-400 hover:underline">your@email.com</a>
+  You can reach me at <a href="mailto:JayE74120@protonmail.com" class="text-blue-400 hover:underline">JayE74120@protonmail.com</a>
 </p>

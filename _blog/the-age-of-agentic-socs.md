@@ -158,8 +158,18 @@ So why does the majority of the industry not use these methods?
 
 I think there are two general reasons:
 
-- **First**, not a lot of people in the industry are exposed to AI use cases outside of the typical chat bot models most people use now a days. This is mainly because of just how new AI is and especially how new Agentic AI is so not a lot of people have fully grasped what AI is capable of.
+- **First**, few people in the industry have been exposed to AI use cases beyond the typical chatbot models that most people use nowadays. This is primarily because AI, and especially agentic AI, is still relatively new, so many have not yet fully grasped its full potential.
 
 - **Second**, using LLMs at scale like this is expensive, at least if you're using any of the frontier models. It may be worth setting up your own locally hosted open source model, where you would not be constrained by API rate limits and costs.
 
-The only trade off with doing this is that the model you'll be using will be "less smart." One way to mitigate this is by running multiple open source models and forming a consensus based on their votes for a particular prompt. For example, suppose you have three different open source models, each asked the same question in the same way. If the majority agree on the same outcome, you take that outcome as the final opinion. In the example provided in this blog, we would ask each locally hosted model the same question: "Given this domain {domain}, is it malicious? Respond only with yes or no." Each model would then cast its vote, and we would take the majority's opinion as the final result.
+The only trade off with doing this is that the model you'll be using will be "less smart." 
+
+One way to mitigate this is by running multiple open source models and forming a consensus based on their votes for a particular prompt. For example, suppose you have three different open source models, each asked the same question in the same way. If the majority agree on the same outcome, you take that outcome as the final opinion. 
+
+In the example provided in this blog, we would ask each locally hosted model the same question: 
+
+> "Given this domain {domain}, is it malicious? Respond only with yes or no." 
+
+Each model would then cast its vote, and we would take the majority's opinion as the final result.
+
+Ill be writing another post some time in the future regarding this exact setup, in the meantime if you liked this post and want to share some thoughts or have any feedback, feel free to reach me at `JayE74120@protonmail.com`
