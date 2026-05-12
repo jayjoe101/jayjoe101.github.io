@@ -170,6 +170,6 @@ In the example provided in this blog, we would ask each locally hosted model the
 
 > "Given this domain {domain}, is it malicious? Respond only with yes or no." 
 
-Each model would then cast its vote, and we would take the majority's opinion as the final result.
+Each model would then cast its vote, and we would take the majority's opinion as the final result. Then the next step after building detections will be to also allow the models to implement remediations for example, by populating a blacklist.
 
 Ill be writing another post some time in the future regarding this exact setup, in the meantime if you liked this post and want to share some thoughts or have any feedback, feel free to reach me at `JayE74120@protonmail.com`
