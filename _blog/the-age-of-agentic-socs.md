@@ -152,7 +152,7 @@ Now, this particular implementation can obviously have some performance issues w
 
 Also, the possiblities of model based detections like this are vast.
 
-Like examining the command-line output of a running process to determine if it was malicious, analyzing executed PowerShell scripts, understanding the semantics of email bodies to detect social engineering attempts, suppressing false-positive alerts, and more.
+Like examining the command line output of a running process to determine if it was malicious, analyzing executed PowerShell scripts, understanding the semantics of email bodies to detect social engineering attempts, suppressing false positive alerts, and more.
 
 So why does the majority of the industry not use these methods?
 
