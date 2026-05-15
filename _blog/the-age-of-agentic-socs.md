@@ -148,7 +148,7 @@ When displaying the DataFrame I got the following table as an output.
 | amazon.com       | False         |
 | rnicrosoft.com   | True          |
 
-Now, this particular implementation can obviously have some performance issues when deployed at scale. Even so, we just solved a problem that, if done traditionally, would require hundreds of lines of code and several hours of work to achieve the same level of accuracy as the script we just made in five minutes.
+Now, this particular implementation can obviously have some performance issues when deployed at scale. Even so, we just solved a problem that, if done traditionally, would require hundreds of lines of code and several hours of work to achieve the same level of accuracy as the script we just made in five minutes. Imagine what we can build given a few months.
 
 Also, the possiblities of model based detections like this are vast.
 
