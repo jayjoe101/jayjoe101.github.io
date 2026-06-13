@@ -1,6 +1,6 @@
 ---
-title: FinancialTracker.Pro
+title: finance app
 github: https://www.financialtracker.pro/
-image: /assets/images/projects/template.png
-description: 'A free-ish financial tracking app with AI enabled features (uses your own key)'
+image: /assets/images/projects/financial_tracker.png
+description: 'A free-ish financial tracking app I made with AI enabled features that uses your own key'
 ---
